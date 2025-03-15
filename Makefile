@@ -87,11 +87,12 @@ endef
 
 # .PHONY: 		all clean fclean re bonus
 
+MINILIBX = ./lib/minilibx-linux/libmlx.a
 
 all:			$(NAME)
 
 $(MINILIBX):
-				make re -s -C ./lib/minilibx-linux/
+				make -s -C ./lib/minilibx-linux/
 
 $(NAME): 		$(MINILIBX) $(LIBFT_LIB) $(RAYCASTING_LIB) $(LIB) $(HEADERS)
 				@$(CC) $(CFLAGS) $(LIB) $(LINK) -o $(NAME)

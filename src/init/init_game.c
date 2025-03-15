@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:00:36 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/14 14:53:35 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/15 16:03:00 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@ int	init_game(t_cube3d *game)
 
 		
 	game_loop(game);
+
+	return (0);
 }

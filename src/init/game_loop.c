@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 22:53:39 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/14 16:09:52 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/15 16:15:44 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	draw_vertical_line(t_cube3d *game, int x, int start, int end, int color)
 		mlx_pixel_put(game->mlx_ptr, game->win_ptr, x, y, color);
 		y++;
 	}
+	return ;
 }
 
 void	render(t_cube3d *game, t_dda *dda)
@@ -63,8 +64,8 @@ void	render(t_cube3d *game, t_dda *dda)
 		map_x = dda->pos_x;
 		map_y = dda->pos_y;
 		
-		delta_dist_x = (ray_dir_x == 0) ? INT64_MAX : fabs(1 / ray_dir_x); // TODO 1e30 -> INT_MAX
-		delta_dist_y = (ray_dir_y == 0) ? INT64_MAX : fabs(1 / ray_dir_y);
+		delta_dist_x = (ray_dir_x == 0) ? (float)INT64_MAX : fabs(1 / ray_dir_x); // TODO 1e30 -> INT_MAX
+		delta_dist_y = (ray_dir_y == 0) ? (float)INT64_MAX : fabs(1 / ray_dir_y);
 
 		if (ray_dir_x < 0)
 		{
@@ -128,7 +129,10 @@ void	render(t_cube3d *game, t_dda *dda)
         draw_vertical_line(game, x, draw_start, draw_end, color);
         x++;
     }
+
 }
+
+
 
 void	init_dda(t_cube3d *game, t_dda *dda)
 {
@@ -147,7 +151,7 @@ int	game_loop(t_cube3d *game)
 	
 	init_dda(game, &dda);
 	
-	render(game, &dda);
+	// render(game, &dda);
 
 	// mlx_loop_hook()  
 	mlx_hook(game->win_ptr, KeyPress, KeyPressMask, key_press, game);
