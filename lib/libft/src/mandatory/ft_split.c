@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:30:43 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/01 08:33:05 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:38:54 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,9 @@ char	**ft_split(char const *s, char c)
 	if (NULL == s)
 		return (NULL);
 	meta_data->word_count = count_words_in_string(s, c);
-	meta_data->address_ptr = ft_calloc((meta_data->word_count + 1), sizeof(char *));
+	meta_data->address_ptr = ft_calloc((meta_data->word_count + 1),
+			sizeof(char *));
+	meta_data->sep = c;
 	if (!meta_data->address_ptr)
 		return (NULL);
 	meta_data->address_ptr[meta_data->word_count] = NULL;

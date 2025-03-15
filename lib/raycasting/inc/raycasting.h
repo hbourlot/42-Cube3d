@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:35:51 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/11 18:51:24 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/14 10:05:55 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,19 @@ typedef	struct s_matrix
 {
 	float	m[4][4];
 }			t_matrix;
+
+typedef struct s_dda
+{
+	double	pos_x;		// x start position
+	double	pos_y;		// y start position
+	double	dir_x;		// initial direction vector
+	double	dir_y;		// initial direction vector
+	double	plane_x;	// the 2d raycaster version of camera plane
+	double	plane_y;	// the 2d raycaster version of camera plane
+	double	time;		// time of current frame
+	double	old_time;	// time of previous frame
+}			t_dda;
+
 
 
 t_vec3		normalize(t_vec3 v);

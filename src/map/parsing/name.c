@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 11:02:45 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/06 16:00:58 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:04:34 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static  bool xpm_end(const char *src)
 	return (true);
 }
 
-bool	invalid_file_name(t_map *map)
+bool	has_invalid_name(t_map *map)
 {
 	if (invalid_cub_name(map->path))
 		return (false);

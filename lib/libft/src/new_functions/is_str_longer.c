@@ -13,11 +13,11 @@
 #include "libft.h"
 
 /// @brief Compares the lengths of two strings to determine if the
-// 		 first is longer than the second.
+// 			first is longer than the second.
 /// @param str1 The first string to compare.
 /// @param str2 The second string to compare.
 /// @return Returns 1 if the length of str1 is greater than the
-///		 length of str2, otherwise returns 0.
+///			length of str2, otherwise returns 0.
 int	is_str_longer(char *src1, char *src2)
 {
 	return (ft_strlen(src1) > ft_strlen(src2));

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split_metadata.c                                   :+:      :+:    :+:   */
+/*   init_s_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 08:25:48 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/13 10:24:04 by hbourlot         ###   ########.fr       */
+/*   Created: 2025/03/13 20:49:44 by hbourlot          #+#    #+#             */
+/*   Updated: 2025/03/13 20:55:20 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cube3d.h"
 
-/// @brief Returns a pointer to a static split metadata structure.
-/// @return Pointer to the static t_split_meta structure.
-t_split_meta	*split_metadata(void)
+
+int	init_s_player(t_player *player, t_map *map)
 {
-	static t_split_meta	meta_data;
+	locate_spawn_point(player, map);
 
-	return (&meta_data);
+	return (0);
 }

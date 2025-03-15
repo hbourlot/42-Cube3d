@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 21:09:48 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/02 20:45:17 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/14 10:08:50 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	allocate_map(t_map *map, int i)
 	return (SUCCESS);
 }
 
-static bool is_map_valid(char **cub_array, const char *valid_chars, int i)
+static bool map_is_valid(char **cub_array, const char *valid_chars, int i)
 {
     int j;
 
@@ -65,7 +65,6 @@ bool	parse_map(t_map *map)
 	i = -1;
 	while (map->cub_array[++i])
 	{
-		// printf("line: >%s<\n",  map->cub_array[i]);
 		if (map->cub_array[i][0] == '\0' || all_same_char(map->cub_array[i], ' ')
 			|| map->cub_array[i][0] == '\n')
 			continue;
@@ -73,7 +72,7 @@ bool	parse_map(t_map *map)
 	}
 	if (!map->cub_array[i])
 		return (ft_printf_fd(2, ME_MINFO), true);
-	if (is_map_valid(map->cub_array, valid_chars, i))
+	if (map_is_valid(map->cub_array, valid_chars, i))
 	{
 		if (allocate_map(map, i))
 			return (false);	

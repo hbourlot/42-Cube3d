@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 07:24:18 by hbourlot          #+#    #+#             */
-/*   Updated: 2024/12/24 07:39:12 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:26:03 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 /// @param s1 The string to compare.
 /// @param compers Array of strings to compare against, terminated by NULL.
 /// @param idx_found Pointer to store the index of the matching string,
-///			 or -1 if no match.
-/// @return 0 if a match is found; -1 otherwise.
+///				or -1 if no match.
+/// @return (0 if a match is found); -1 otherwise.
 int	find_string_match(const char *s1, const char *compers[], int *idx_found)
 {
 	size_t			j;

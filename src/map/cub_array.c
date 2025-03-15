@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:56:43 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/01 10:57:56 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:03:43 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int fill_cub_array(char **cub_array, const char *path)
 int cub_array(t_map *map)
 {
 	map->cub_array = allocate_cub_array(map->nbr_of_lines, map);
-	if (!cub_array)
+	if (!map->cub_array)
 		return (-1);
 	if (fill_cub_array(map->cub_array, map->path) < 0)
 		return (-1);

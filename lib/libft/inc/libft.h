@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 20:49:30 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/01 08:32:50 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:43:01 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,21 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# ifndef CMP_OK
+#  define CMP_OK 0
+# endif
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
 
-typedef	struct	s_split_meta
+typedef struct s_split_meta
 {
-	size_t	word_count;
-	char	**address_ptr;
+	size_t			word_count;
+	char			**address_ptr;
+	char			sep;
 }					t_split_meta;
 
 // ! Functions in "./SRC/"

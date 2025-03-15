@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:18:57 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/12 16:53:20 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:45:00 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <fcntl.h>
 #include <math.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -30,10 +31,10 @@ typedef struct s_sprite
 {
 	char				*addr;
 	void				*mlx_ptr;
-	void				*mlx_win;
+	void				*win_ptr;
 	void				*img;
-	int					size_x;
-	int					size_y;
+	int					width;
+	int					height;
 	int					color;
 	int					bpp;
 	int					size_line;
@@ -68,6 +69,9 @@ typedef struct s_map
 typedef struct s_player
 {
 	int			direction;
+	int			pos_x;
+	int			pos_y;
+	char  dir;
 }				t_player;
 
 typedef struct s_cube3d
@@ -78,6 +82,7 @@ typedef struct s_cube3d
 	void		*img_ptr;
 	char		*name;
 	t_img		*sprites;
+	t_player	*player;
 
 }				t_cube3d;
 
@@ -90,10 +95,10 @@ int				key_press(int keycode, t_cube3d *game);
 // ***************************************************************************
 // **							map/parsing Functions 						**
 // ***************************************************************************
-bool			parse_fc(t_map *map);
+bool			parse_floor_ceiling(t_map *map);
 bool			parse_map(t_map *map);
 bool			parse_texture(t_map *map);
-bool			invalid_file_name(t_map *map);
+bool			has_invalid_name(t_map *map);
 
 // ***************************************************************************
 // **							Initialize Functions 						**
@@ -101,13 +106,20 @@ bool			invalid_file_name(t_map *map);
 int				init_s_map(t_map *map);
 int				init_game(t_cube3d *game);
 int				init_s_cube3d(t_cube3d **game, int argc, char *argv[]);
+int				init_s_player(t_player *player, t_map *map);
+
 
 // ***************************************************************************
 // **							Draw Functions       						**
 // ***************************************************************************
 void			draw_pixel(t_sprite *sprite, int x, int y, int color);
 int				create_rgb(int t, int r, int g, int b);
+int				load_xpm(t_cube3d *game, char *sprite, t_sprite *img);
 
+// ***************************************************************************
+// **							Player Functions      						**
+// ***************************************************************************
+void			locate_spawn_point(t_player *player, t_map *map);
 
 
 // ***************************************************************************

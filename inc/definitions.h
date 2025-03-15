@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:19:52 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/11 16:03:43 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/14 10:22:10 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@
 #define SOUTH "SO"
 #define WEST "WE"
 #define EAST "EA"
-#define CMP_OK 0
+#define VPL "NSWE" // valid player location
 #define IMG_WIDTH 256
 #define IMG_HEIGHT 256
-#define MAP_HEIGHT 800
-#define MAP_WIDTH 400
+#define SCREEN_HEIGHT 800
+#define SCREEN_WIDTH 400
+
+//
+#define FOV_X 0
+#define FOV_Y 0.66

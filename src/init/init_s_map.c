@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_cube3d.c                                         :+:      :+:    :+:   */
+/*   init_s_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 17:11:01 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/12 16:52:18 by hbourlot         ###   ########.fr       */
+/*   Created: 2025/02/27 17:06:44 by hbourlot          #+#    #+#             */
+/*   Updated: 2025/03/14 10:10:25 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "cube3d.h"
+#include "cube3d.h"
 
-int init_s_cube3d(t_cube3d **game, int argc, char *argv[])
+int	init_s_map(t_map *map)
 {
-	static t_cube3d data;
-	static t_map	map;
-	static t_img    sprites;
-	
-	ft_memset(&data, 0, sizeof(t_cube3d));
-	*game = &data;
-	(*game)->map = &map;
-	(*game)->sprites = &sprites;
-	data.map->path = argv[1];
-	if (init_s_map(data.map) < 0)
+	int			status;
+
+	map->nbr_of_lines = count_lines(map->path);
+	if (map->nbr_of_lines < 0)
 		return (-1);
-	printf("%s\n", map.ceiling);
+	if (map->nbr_of_lines == 0)
+		return (ft_printf_fd(2, ME_EM), -1);
+	if (cub_array(map) < 0)
+		return (-1);
+	if (parse_texture(map) || parse_floor_ceiling(map)
+		|| has_invalid_name(map) || parse_map(map))
+			return (-1);
 	return (0);
 }
