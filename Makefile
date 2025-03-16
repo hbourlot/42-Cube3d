@@ -47,6 +47,7 @@ OBJS_SRC 		= $(addprefix $(OBJ_DIR), $(SRC_FILES:%.c=%.o))
 # -- INCLUDES LIBRARIES
 LIBFT_LIB 		= ./lib/libft/libft.a
 RAYCASTING_LIB  = ./lib/raycasting/libraycasting.a 
+MINILIBX_LIB	= ./lib/minilibx-linux/libmlx.a
 
 
 ifeq ($(OS), Darwin)
@@ -87,11 +88,10 @@ endef
 
 # .PHONY: 		all clean fclean re bonus
 
-MINILIBX = ./lib/minilibx-linux/libmlx.a
 
 all:			$(NAME)
 
-$(MINILIBX):
+$(MINILIBX_LIB):
 				make -s -C ./lib/minilibx-linux/
 
 $(NAME): 		$(MINILIBX) $(LIBFT_LIB) $(RAYCASTING_LIB) $(LIB) $(HEADERS)
