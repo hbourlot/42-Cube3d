@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 22:53:39 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/18 09:45:48 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:40:08 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void dda(t_cube3d *game, t_matrix *se_points, int x0, int y0)
 	i = 0;
 	while (i <= steps)
 	{
-		int color = create_rgb(1, 255, 0, 0);
+		int color = create_rgb(0, 255, 0, 0);
 		mlx_pixel_put(game->mlx_ptr, game->win_ptr, round(x0), round(y0), color);
 		x0 += x_inc;
 		y0 += y_inc;
@@ -144,12 +144,12 @@ void render(t_cube3d *game, t_dda *dda_s)
         if (side == 1)
             color /= 2;
 
-        // wall_points.m[0][0] = x;
-        // wall_points.m[1][0] = draw_start;
-        // wall_points.m[0][1] = x;
-        // wall_points.m[1][1] = draw_end;
-        // dda(game, &wall_points, x, draw_start);
-		draw_vertical_line(game, x, draw_start, draw_end, color);
+        wall_points.m[0][0] = x;
+        wall_points.m[1][0] = draw_start;
+        wall_points.m[0][1] = x;
+        wall_points.m[1][1] = draw_end;
+        dda(game, &wall_points, x, draw_start);
+		// draw_vertical_line(game, x, draw_start, draw_end, color);
         x++;
     }
 }
@@ -159,8 +159,8 @@ void	init_dda(t_cube3d *game, t_dda *dda)
 	ft_memset(dda, 0, sizeof(t_dda));
 	dda->pos_x = game->player->pos_x;
 	dda->pos_y = game->player->pos_y;	
-	dda->dir_x = 1;
-	dda->dir_y = 0;
+	dda->dir_x = 0;
+	dda->dir_y = -1;
 	dda->plane_x = FOV_X;
 	dda->plane_y = FOV_Y;
 	// printf("dda->pos_x: %f | dda->pos_y: %f\n", dda->pos_x, dda->pos_y);

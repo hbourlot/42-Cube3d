@@ -20,8 +20,8 @@ COMPILED_FILES	= 0
 OS				= $(shell uname)
 
 NAME			= cub3D
-C_FUNCTIONS		= init/game_loop init/s_cube3d init/init_s_map 													\
-				  init/init_window init/init_game init/init_s_player													\
+C_FUNCTIONS		= init/game_loop init/init_s_cube3d init/init_s_map 											\
+				  init/init_window init/init_game init/init_s_player											\
 				  																								\
 				  utils/key_hook																				\
 																												\
@@ -110,7 +110,7 @@ $(OBJ_DIR)%.o:	%.c $(INCLUDE)
 				$(call print_compile_msg, $<)
 				@$(CC) $(CFLAGS) -c $< -I./$(INCLUDE) -o $@
 
-main.o:			main.c $(INCLUDE)#inc/cube3d.h inc/definitions.h inc/error.h
+main.o:			main.c $(INCLUDE) #inc/cube3d.h inc/definitions.h inc/error.h
 				$(call print_compile_msg, $<)
 				@$(CC) -c main.c $(CFLAGS) -I./$(INCLUDE) -o $@
 
