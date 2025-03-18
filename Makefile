@@ -19,7 +19,7 @@ TOTAL_FILES		= $(shell echo $$(($(words $(OBJS_SRC)) + 1)))
 COMPILED_FILES	= 0
 OS				= $(shell uname)
 
-NAME			= cube3d
+NAME			= cub3D
 C_FUNCTIONS		= init/game_loop init/s_cube3d init/init_s_map 													\
 				  init/init_window init/init_game init/init_s_player													\
 				  																								\
@@ -48,7 +48,6 @@ OBJS_SRC 		= $(addprefix $(OBJ_DIR), $(SRC_FILES:%.c=%.o))
 LIBFT_LIB 		= ./lib/libft/libft.a
 RAYCASTING_LIB  = ./lib/raycasting/libraycasting.a 
 MINILIBX_LIB	= ./lib/minilibx-linux/libmlx.a
-
 
 ifeq ($(OS), Darwin)
 	PRINT_CMD = printf
@@ -86,15 +85,13 @@ define fclean_func
 	fi
 endef
 
-# .PHONY: 		all clean fclean re bonus
-
 
 all:			$(NAME)
 
 $(MINILIBX_LIB):
 				make -s -C ./lib/minilibx-linux/
 
-$(NAME): 		$(MINILIBX) $(LIBFT_LIB) $(RAYCASTING_LIB) $(LIB) $(HEADERS)
+$(NAME): 		$(MINILIBX_LIB) $(LIBFT_LIB) $(RAYCASTING_LIB) $(LIB) $(HEADERS)
 				@$(CC) $(CFLAGS) $(LIB) $(LINK) -o $(NAME)
 				@echo "$(GREEN)Executable '$(RED)$(NAME)$(GREEN)' created successfully!$(RESET) ✅"
 
@@ -132,9 +129,11 @@ re: 			fclean all
 bonus:			all
 
 r:
-	@make -s
-	@./$(NAME) ./map/ex1.cub
+				@make -s
+				@./$(NAME) ./map/ex1.cub
 
 v:
-	@make -s
-	@$(VALGRIND) ./$(NAME) ./map/ex1.cub
+				@make -s
+				@$(VALGRIND) ./$(NAME) ./map/ex1.cub
+
+.PHONY: 		all clean fclean re bonus
