@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_s_player.c                                    :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 20:49:44 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/18 09:43:48 by hbourlot         ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "mlx_int.h"
 
-
-int	init_s_player(t_player *player, t_map *map)
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	locate_spawn_point(player, map);
-	return (0);
+	XCloseDisplay(xvar->display);
 }

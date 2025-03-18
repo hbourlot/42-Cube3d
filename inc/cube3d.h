@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:18:57 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/14 15:45:00 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/18 09:23:59 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <X11/X.h>      // Button press
 # include <X11/keysym.h> // Key device
 #include <fcntl.h>
+#include <limits.h>
 #include <math.h>
 #include <stdbool.h>
 #include <stdint.h>
