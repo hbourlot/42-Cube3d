@@ -17,9 +17,12 @@ TOTAL_FILES		= $(shell echo $$(($(words $(OBJS_SRC)))))
 COMPILED_FILES 	= 0
 OS 				= $(shell uname)
 
-C_FUNCTIONS		= add cross dot identify_matrix magnitude multiply_matrix_vector normalize \
-					rotation_matrix_z subtract translation_matrix
-			
+C_FUNCTIONS		= t_matrix/identify_matrix t_matrix/multiply_matrix_vector		\
+					t_matrix/multiply_matrix_vector t_matrix/rotation_matrix_z	\
+					t_matrix/translation_matrix									\
+					t_vec/add t_vec/cross t_vec/dot t_vec/magnitude				\
+					t_vec/normalize t_vec/subtract								\
+
 #Source and Object files
 SRC_FILES 		= $(addprefix $(SRC_DIR), $(C_FUNCTIONS:=.c))
 
