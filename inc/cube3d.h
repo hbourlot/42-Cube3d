@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:18:57 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/18 09:23:59 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:58:42 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ typedef struct s_cube3d
 	char		*name;
 	t_img		*sprites;
 	t_player	*player;
+	// t_render	*render;
 
 }				t_cube3d;
 
@@ -108,7 +109,18 @@ int				init_s_map(t_map *map);
 int				init_game(t_cube3d *game);
 int				init_s_cube3d(t_cube3d **game, int argc, char *argv[]);
 int				init_s_player(t_player *player, t_map *map);
+t_render		*init_render(t_cube3d *game, int pos_x, int pos_y);
 
+
+
+
+// ***************************************************************************
+// **							draw/dda Functions       					**
+// ***************************************************************************
+int			dda_steps(int delta_x, int delta_y);
+int 		dda_dy(t_matrix *se_points);
+int			dda_dx(t_matrix *se_points);
+void 		dda(void *game, t_matrix *se_points, int x0, int y0);
 
 // ***************************************************************************
 // **							Draw Functions       						**

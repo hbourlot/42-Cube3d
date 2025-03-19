@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   definitions.h                                      :+:      :+:    :+:   */
+/*   get_render.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 09:19:52 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/19 14:47:55 by hbourlot         ###   ########.fr       */
+/*   Created: 2025/03/19 15:20:52 by hbourlot          #+#    #+#             */
+/*   Updated: 2025/03/19 15:44:55 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "raycasting.h"
 
-#include "cube3d.h"
-
-#define NORTH "NO"
-#define SOUTH "SO"
-#define WEST "WE"
-#define EAST "EA"
-#define VPL "NSWE" // valid player location
-#define IMG_WIDTH 256
-#define IMG_HEIGHT 256
-#define SCREEN_HEIGHT 800
-#define SCREEN_WIDTH 400
-
-//
+t_render	*get_render()
+{
+	static t_render render;
+	
+	return (&render);
+}

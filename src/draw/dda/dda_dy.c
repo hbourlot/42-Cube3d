@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   definitions.h                                      :+:      :+:    :+:   */
+/*   dda_dy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 09:19:52 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/19 14:47:55 by hbourlot         ###   ########.fr       */
+/*   Created: 2025/03/19 15:03:40 by hbourlot          #+#    #+#             */
+/*   Updated: 2025/03/19 15:36:17 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #include "cube3d.h"
 
-#define NORTH "NO"
-#define SOUTH "SO"
-#define WEST "WE"
-#define EAST "EA"
-#define VPL "NSWE" // valid player location
-#define IMG_WIDTH 256
-#define IMG_HEIGHT 256
-#define SCREEN_HEIGHT 800
-#define SCREEN_WIDTH 400
-
-//
+int dda_dy(t_matrix *se_points)
+{
+	return (se_points->m[1][1] - se_points->m[1][0]);
+}

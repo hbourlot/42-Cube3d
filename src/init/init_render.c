@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   definitions.h                                      :+:      :+:    :+:   */
+/*   init_render.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 09:19:52 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/19 14:47:55 by hbourlot         ###   ########.fr       */
+/*   Created: 2025/03/19 14:47:00 by hbourlot          #+#    #+#             */
+/*   Updated: 2025/03/19 15:58:05 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #include "cube3d.h"
 
-#define NORTH "NO"
-#define SOUTH "SO"
-#define WEST "WE"
-#define EAST "EA"
-#define VPL "NSWE" // valid player location
-#define IMG_WIDTH 256
-#define IMG_HEIGHT 256
-#define SCREEN_HEIGHT 800
-#define SCREEN_WIDTH 400
+t_render	*init_render(t_cube3d *game, int pos_x, int pos_y)
+{
+	t_render *render_s;
 
-//
+	render_s = get_render();
+
+	render_s->pos_x = pos_x;
+	render_s->pos_y = pos_y;	
+	render_s->dir_x = 1;
+	render_s->dir_y = 0;
+	render_s->plane_x = FOV_X;
+	render_s->plane_y = FOV_Y;
+	render_s->render = render;
+	render_s->dda_algorithm = dda;
+	render_s->game = game;
+	return (render_s);
+}

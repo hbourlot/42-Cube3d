@@ -22,11 +22,13 @@ OS				= $(shell uname)
 NAME			= cub3D
 C_FUNCTIONS		= init/game_loop init/init_s_cube3d init/init_s_map 											\
 				  init/init_window init/init_game init/init_s_player											\
+				  init/init_render																				\
 				  																								\
 				  utils/key_hook																				\
 																												\
 				  exit/free																						\
 				  draw/draw_pixel	draw/load_xpm	draw/create_rgb												\
+				  draw/dda/dda_dx draw/dda/dda_dy draw/dda/dda_steps draw/dda/dda								\
 																												\
 				  map/count_lines map/cub_array map/open														\
 				  map/parsing/map map/parsing/texture map/parsing/floor_ceiling									\
@@ -117,6 +119,7 @@ main.o:			main.c $(INCLUDE) #inc/cube3d.h inc/definitions.h inc/error.h
 clean:
 				@make clean -s -C ./lib/libft
 				@make clean -s -C ./lib/raycasting
+				@make clean -s -C ./lib/minilibx-linux
 				$(call clean_func)
 
 fclean: 		clean

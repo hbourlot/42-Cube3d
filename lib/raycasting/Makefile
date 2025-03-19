@@ -22,6 +22,7 @@ C_FUNCTIONS		= t_matrix/identify_matrix t_matrix/multiply_matrix_vector		\
 					t_matrix/translation_matrix									\
 					t_vec/add t_vec/cross t_vec/dot t_vec/magnitude				\
 					t_vec/normalize t_vec/subtract								\
+					t_render/get_render t_render/render							\
 
 #Source and Object files
 SRC_FILES 		= $(addprefix $(SRC_DIR), $(C_FUNCTIONS:=.c))
