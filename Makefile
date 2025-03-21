@@ -28,7 +28,7 @@ C_FUNCTIONS		= init/game_loop init/init_s_cube3d init/init_s_map 											\
 																												\
 				  exit/free																						\
 				  draw/draw_pixel	draw/load_xpm	draw/create_rgb												\
-				  draw/dda/dda_dx draw/dda/dda_dy draw/dda/dda_steps draw/dda/dda								\
+				  draw/dda/dda_dx draw/dda/dda_dy draw/dda/dda_steps draw/dda/draw_line								\
 																												\
 				  map/count_lines map/cub_array map/open														\
 				  map/parsing/map map/parsing/texture map/parsing/floor_ceiling									\

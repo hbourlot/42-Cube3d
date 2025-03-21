@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:35:51 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/19 16:04:28 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/19 22:54:40 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ typedef struct s_render
 	int			draw_end;
 	t_matrix	wall_points;
 	void		(*render)(int screen_width, int screen_height, char **map_array);
-	void		(*dda_algorithm)(void *game, t_matrix *se_points, int x0, int y0);
+	void		(*draw_line)(void *game, t_matrix *se_points, int x0, int y0);
 	
 }			t_render;
 

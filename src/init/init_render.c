@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:47:00 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/19 15:58:05 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/19 22:56:41 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_render	*init_render(t_cube3d *game, int pos_x, int pos_y)
 	render_s->plane_x = FOV_X;
 	render_s->plane_y = FOV_Y;
 	render_s->render = render;
-	render_s->dda_algorithm = dda;
+	render_s->draw_line = draw_line;
 	render_s->game = game;
 	return (render_s);
 }

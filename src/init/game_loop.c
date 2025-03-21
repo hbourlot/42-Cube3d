@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 22:53:39 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/19 16:03:10 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/19 22:09:54 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	game_loop(t_cube3d *game)
     t_render	*render;
 
     render = init_render(game, game->player->pos_x, game->player->pos_y);
-	
+
     // game->render = &render_struct;
     // init_render(game->render, game->player->pos_x,  game->player->pos_y);
 
