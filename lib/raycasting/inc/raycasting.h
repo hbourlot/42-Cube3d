@@ -6,16 +6,22 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:35:51 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/19 22:54:40 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/21 17:40:31 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <math.h>
-
+#include <stdio.h>
+#include <wait.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 // Including path to dda function
 // #include "../../../inc/cube3d.h"
+
+
 
 #define FOV_X 0
 #define FOV_Y 0.66
