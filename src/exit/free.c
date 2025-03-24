@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:14:58 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/12 16:47:28 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:44:47 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	free_map(t_map *map)
 	int	i;
 
 	i = 0;
-	while (map->map_array && map->map_array[i])
+	while (map->map_world && map->map_world[i])
 	{
-		free(map->map_array[i]);
+		free(map->map_world[i]);
 		i++;
 	}
-	if (map->map_array)
-		free(map->map_array);
+	if (map->map_world)
+		free(map->map_world);
 	if (map->cub_array)
 		free_split(map->cub_array);
 	if (map->ea)

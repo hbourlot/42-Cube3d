@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:35:51 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/21 17:40:31 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:44:47 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <SDL2/SDL.h>  // SDL headers for timing
+#include <time.h>
+
 // Including path to dda function
 // #include "../../../inc/cube3d.h"
 
@@ -98,10 +101,11 @@ typedef struct s_render
 	int			line_height;
 	int			draw_start;
 	int			draw_end;
+	double		move_speed;
+	double		rot_speed;
 	t_matrix	wall_points;
-	void		(*render)(int screen_width, int screen_height, char **map_array);
+	void		(*render)(int screen_width, int screen_height, char **map_world);
 	void		(*draw_line)(void *game, t_matrix *se_points, int x0, int y0);
-	
 }			t_render;
 
 
@@ -119,5 +123,6 @@ t_matrix	translation_matrix(float tx, float ty, float tz);
 t_matrix	rotation_matrix_z(float angle);
 
 t_render	*get_render();
-void		render(int screen_width, int screen_height, char **map_array);
+void		render(int screen_width, int screen_height, char **map_world);
 
+unsigned int get_ticks();

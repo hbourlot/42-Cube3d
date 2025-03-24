@@ -7,7 +7,7 @@ CYAN 			= \033[1;36m
 RESET 			= \033[0m
 
 CC				= cc
-CFLAGS			= -Wall -Wextra -Werror
+CFLAGS			= #-Wall -Wextra -Werror
 NAME			= libraycasting.a
 INCLUDE 		= inc/
 SRC_DIR 		= src/
@@ -23,6 +23,7 @@ C_FUNCTIONS		= t_matrix/identify_matrix t_matrix/multiply_matrix_vector		\
 					t_vec/add t_vec/cross t_vec/dot t_vec/magnitude				\
 					t_vec/normalize t_vec/subtract								\
 					t_render/get_render t_render/render							\
+					get_ticks
 
 #Source and Object files
 SRC_FILES 		= $(addprefix $(SRC_DIR), $(C_FUNCTIONS:=.c))

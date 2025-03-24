@@ -6,31 +6,118 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 22:55:38 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/19 16:04:04 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/24 21:24:40 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
+
+static void move_up(int keycode, char **map_world, t_render *render)
+{
+    int new_pos_x = (int)(render->pos_x + render->dir_x * render->move_speed);
+    int new_pos_y = (int)(render->pos_y + render->dir_y * render->move_speed);
+    
+
+    if (map_world[new_pos_x][(int)render->pos_y] == false)
+	{
+		
+		printf("LALALA1\n");
+        render->pos_x += render->dir_x * render->move_speed;
+	}
+    printf("render->pos_x: %d\n", new_pos_x);
+    printf("render->pos_y: %d\n", new_pos_y);
+	printf("map[x][x]: '%c'\n", map_world[new_pos_y][new_pos_x]);
+    if (map_world[(int)render->pos_x][new_pos_y] == '0')
+	{
+		
+		printf("render->move_speed: %f\n", render->move_speed);
+		printf("render->pos_y(bef): %f\n", render->pos_y);
+		printf("render->dir_y: %f\n", render->dir_y);
+		render->pos_y += render->dir_y * render->move_speed;
+		printf("render->pos_y(apos): %f\n", render->pos_y);
+	}
+}
+
+static void move_down(int keycode, char **map_world, t_render *render)
+{
+    int new_pos_x;
+    int new_pos_y;
+	
+	
+	new_pos_x = (int)(render->pos_x - render->dir_x * render->move_speed);
+	new_pos_y = (int)(render->pos_y - render->dir_y * render->move_speed);
+    if (map_world[new_pos_x][(int)render->pos_y] == '0')
+	{
+		
+		printf("LALALA1\n");
+        render->pos_x -= render->dir_x * render->move_speed;
+	}
+    printf("render->pos_x: %d\n", new_pos_x);
+    printf("render->pos_y: %d\n", new_pos_y);
+	printf("map[x][x]: '%c'\n", map_world[new_pos_y][new_pos_x]);
+    if (map_world[(int)render->pos_x][new_pos_y] == '0')
+	{
+		
+		printf("render->move_speed: %f\n", render->move_speed);
+		printf("render->pos_y(bef): %f\n", render->pos_y);
+		printf("render->dir_y: %f\n", render->dir_y);
+		render->pos_y -= render->dir_y * render->move_speed;
+		printf("render->pos_y(apos): %f\n", render->pos_y);
+	}
+}
+
+static void move_right(int keycode, char **map_world, t_render *render)
+{
+	double	old_dir_x;
+	int		new_pos_y;
+	int		new_pos_x;
+	double	old_plane_x;
+	
+	
+	old_dir_x = render->dir_x;
+	old_plane_x = render->plane_x;
+	render->dir_x = render->dir_x * cos(-render->rot_speed) - render->dir_y * sin(-render->rot_speed);
+	render->dir_y = old_dir_x * sin(-render->rot_speed) + render->dir_y * cos(-render->rot_speed);
+	render->plane_x = render->plane_x * cos(-render->rot_speed) - render->plane_y * sin(-render->rot_speed);
+	render->plane_y = old_plane_x * sin(-render->rot_speed) + render->plane_y * cos(-render->rot_speed);
+}
+
+static void move_left(int keycode, t_render *render)
+{
+	double	old_dir_x;
+	double	old_plane_x;
+	double	rot_speed;
+
+	old_dir_x = render->dir_x;
+	old_plane_x = render->plane_x;
+	rot_speed = render->rot_speed;
+	render->dir_x = render->dir_x * cos(rot_speed) - render->dir_y * sin(rot_speed);
+	render->dir_y = old_dir_x * sin(rot_speed) + render->dir_y * cos(rot_speed);
+	render->plane_x = render->plane_x * cos(rot_speed) - render->plane_y * sin(rot_speed);
+	render->plane_y = old_plane_x * sin(rot_speed) + render->plane_y * cos(rot_speed);	
+}
 int key_press(int keycode, t_cube3d *game)
 {
+	char 		**map_world;
+	t_render	*render;
+
+	map_world = game->map->map_world;
+	render = game->render;
+	
+	mlx_clear_window(game->mlx_ptr, game->win_ptr);
+	if (keycode == XK_Up)
+		move_up(keycode, map_world, render);
+	if (keycode == XK_Down)
+		move_down(keycode, map_world, render);
 	if (keycode == XK_Escape)
 	{
 		ft_printf_fd(1, "You pressed %d (Esc)\n", keycode);
 		free_game(game);
 	}
 	if (keycode == XK_Right)
-	{
-		mlx_clear_window(game->mlx_ptr, game->win_ptr);
-		// printf("game->render->dir_x: %f\n", game->render->dir_x);
-		get_render()->dir_y += 0.05;
-	}
+		move_right(keycode, map_world, render);
 	if (keycode == XK_Left)
-	{
-		mlx_clear_window(game->mlx_ptr, game->win_ptr);
-		get_render()->dir_y -= 0.05;
-		// printf("game->render->dir_x: %f\n", game->render->dir_x);
-		// printf("game->render->dir_x: %f\n", game->render->side_dist_x);
-	}
+		move_left(keycode, render);
 	return (0);
 }

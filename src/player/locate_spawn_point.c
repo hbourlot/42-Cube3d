@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 10:13:30 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/22 11:52:44 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:44:47 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	locate_spawn_point(t_player *player, t_map *map)
 	int	tot;
 
 	i  = 0;
-	while (map->map_array[i])
+	while (map->map_world[i])
 	{
 		j = 0;
 		tot = 0;
-		while (map->map_array[i][j])
+		while (map->map_world[i][j])
 		{
-			if (ft_strchr(IPL, map->map_array[i][j]))
+			if (ft_strchr(IPL, map->map_world[i][j]))
 				tot++;
-			if (ft_strchr(VPL, map->map_array[i][j]))
+			if (ft_strchr(VPL, map->map_world[i][j]))
 			{
-				player->dir = map->map_array[i][j];
+				player->dir = map->map_world[i][j];
 				player->pos_x = j - tot;
 				player->pos_y = i;
 			}

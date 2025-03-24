@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_s_player.c                                    :+:      :+:    :+:   */
+/*   get_ticks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 20:49:44 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/24 20:11:51 by hbourlot         ###   ########.fr       */
+/*   Created: 2025/03/24 17:12:26 by hbourlot          #+#    #+#             */
+/*   Updated: 2025/03/24 19:38:12 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "raycasting.h"
 
-
-int	init_s_player(t_player *player, t_map *map)
+unsigned int get_ticks()
 {
-	locate_spawn_point(player, map);
-	return (0);
+	return (unsigned int)(clock() * 1000 / CLOCKS_PER_SEC);
 }

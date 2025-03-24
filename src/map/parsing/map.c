@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 21:09:48 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/14 10:08:50 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:44:47 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ static int	allocate_map(t_map *map, int i)
 	int		j;
 
 	j = 0;
-	map->map_array = ft_calloc(map->nbr_of_lines - i + 1, sizeof(char *));
-	if (!map->map_array)
+	map->map_world = ft_calloc(map->nbr_of_lines - i + 1, sizeof(char *));
+	if (!map->map_world)
 		return (ft_printf_fd(2, ME_MALLOC), -1);
 	while (map->cub_array[i])
 	{
-		map->map_array[j] = ft_strdup(map->cub_array[i]);
-		if (!map->map_array[j])
+		map->map_world[j] = ft_strdup(map->cub_array[i]);
+		if (!map->map_world[j])
 		{
 			while (--j >= 0)
-				free(map->map_array[j]);
-			free(map->map_array);
+				free(map->map_world[j]);
+			free(map->map_world);
 			return (ft_printf_fd(2, ME_MALLOC), -1);
 		}
 		j++;

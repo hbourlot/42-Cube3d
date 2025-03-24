@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:18:57 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/19 22:55:17 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:45:45 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_map
 {
 	const char	*path;
 	char		**cub_array;
-	char		**map_array;
+	char		**map_world;
 	int			nbr_of_lines;
 	int			width;
 	int			height;
@@ -84,7 +84,7 @@ typedef struct s_cube3d
 	char		*name;
 	t_img		*sprites;
 	t_player	*player;
-	// t_render	*render;
+	t_render	*render;
 
 }				t_cube3d;
 
