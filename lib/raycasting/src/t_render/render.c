@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:31:15 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/24 21:19:17 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:00:50 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ static void set_step_and_side_dist(t_render *render_s)
 static void perform_dda(t_render *render_s, char **map_world)
 {
     render_s->hit = 0;
+    
     while (render_s->hit == 0)
     {
         if (render_s->side_dist_x < render_s->side_dist_y)
