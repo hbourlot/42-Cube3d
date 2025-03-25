@@ -22,7 +22,9 @@ C_FUNCTIONS		= t_matrix/identify_matrix t_matrix/multiply_matrix_vector		\
 					t_matrix/translation_matrix									\
 					t_vec/add t_vec/cross t_vec/dot t_vec/magnitude				\
 					t_vec/normalize t_vec/subtract								\
-					t_render/get_render t_render/render							\
+					t_render/get_render t_render/render	t_render/perform_dda	\
+					t_render/update_timing	t_render/calculate_wall_height		\
+					t_render/step_and_side_dist t_render/init_ray				\
 					get_ticks
 
 #Source and Object files

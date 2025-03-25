@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_s_player.c                                    :+:      :+:    :+:   */
+/*   update_timing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 20:49:44 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/25 15:37:03 by hbourlot         ###   ########.fr       */
+/*   Created: 2025/03/25 15:48:02 by hbourlot          #+#    #+#             */
+/*   Updated: 2025/03/25 15:48:21 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "raycasting.h"
 
-
-int	init_s_player(t_player *player, t_map *map)
+void update_timing(t_render *render_s)
 {
-	// locate_spawn_point(player, map);
-	player->pos_x = 22;
-	player->pos_y = 12;
-	return (0);
+    render_s->old_time = render_s->time;
+    render_s->time = get_ticks(); 
+    
+    double frameTime = (render_s->time - render_s->old_time) / 1000.0;
+
+    render_s->move_speed = frameTime * 15.0;  
+    render_s->rot_speed = frameTime * 8.0;
 }
