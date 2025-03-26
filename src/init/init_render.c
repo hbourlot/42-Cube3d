@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:47:00 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/24 20:11:04 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/26 12:26:18 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static void init_location(t_render *render_s, char dir)
 	}
 }
 
-
 t_render	*init_render(t_cube3d *game, int pos_x, int pos_y)
 {
 	t_render *render_s;
@@ -50,9 +49,9 @@ t_render	*init_render(t_cube3d *game, int pos_x, int pos_y)
 		render_s->pos_y = pos_y;
 		
 	}
-	init_location(render_s, game->player->dir);	
-	// render_s->dir_x = 1;
-	// render_s->dir_y = 0;
+	// init_location(render_s, game->player->dir);	
+	render_s->dir_x = -1;
+	render_s->dir_y = 0;
 	render_s->plane_x = FOV_X;
 	render_s->plane_y = FOV_Y;
 	render_s->render = render;

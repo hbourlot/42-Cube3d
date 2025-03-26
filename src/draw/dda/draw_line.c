@@ -1,16 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dda.c                                              :+:      :+:    :+:   */
+/*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:05:59 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/19 22:55:01 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/26 12:21:28 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
+int	set_color()
+{
+	t_render	*render_s;
+    int    		color;
+	
+	render_s = get_render();
+
+    switch (worldMap[render_s->map_x][render_s->map_y])
+    {
+    case 1:
+        color = create_rgb(0, 255, 0, 0);       
+        break;
+    case 2:
+        color = create_rgb(0, 0, 255, 0);
+        break;
+    case 3:
+        color = create_rgb(0, 0, 0, 255);
+        break;
+    case 4:
+        color = create_rgb(0, 255, 255, 255);
+        break;
+    default:
+        color = create_rgb(0, 255, 255, 0); // yellow
+        break;
+    }
+	return (color);
+}
 
 void draw_line(void *game, t_matrix *se_points, int x0, int y0)
 {
@@ -29,7 +57,8 @@ void draw_line(void *game, t_matrix *se_points, int x0, int y0)
 	color = create_rgb(0, 155, 120, 0);
 	while (i <= steps)
 	{
-		mlx_pixel_put(cube->mlx_ptr, cube->win_ptr, round(x0), round(y0), color);
+		mlx_pixel_put(cube->mlx_ptr, cube->win_ptr, round(x0), round(y0), set_color());
+		// mlx_pixel_put(cube->mlx_ptr, cube->win_ptr, round(x0), round(y0), color);
 		x0 += x_inc;
 		y0 += y_inc;
 		i++;
