@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:35:51 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/26 12:18:46 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/28 14:08:03 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,9 @@ typedef struct s_render
 	double		move_speed;
 	double		rot_speed;
 	t_matrix	wall_points;
+	int			tex_num; // value of the current map square minus 1
+	int			tex_x; // x-coordinate of the texture
+	double		wall_x; // exact value where the wall was hit ( not just the integer coordinates of the wall)
 	void		(*render)(int screen_width, int screen_height, char **map_world);
 	void		(*draw_line)(void *game, t_matrix *se_points, int x0, int y0);
 }			t_render;
