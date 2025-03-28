@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:31:15 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/26 13:09:37 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/28 14:44:12 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void render(int screen_width, int screen_height, char **map_world)
         init_ray(render_s, screen_width, x);
         step_and_side_dist(render_s);
         perform_dda(render_s, map_world);
+        texture_calculation(render_s);
         calculate_wall_height(render_s, screen_height);
         // print_debug(render_s, x);
 

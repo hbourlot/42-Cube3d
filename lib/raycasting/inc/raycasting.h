@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:35:51 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/28 14:08:03 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/28 14:44:04 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 
 #define mapWidth 24
 #define mapHeight 24
+#define texWidth 64
+#define texHeight 64
 
 extern int worldMap[mapWidth][mapHeight];
 
@@ -114,6 +116,7 @@ typedef struct s_render
 	int			tex_num; // value of the current map square minus 1
 	int			tex_x; // x-coordinate of the texture
 	double		wall_x; // exact value where the wall was hit ( not just the integer coordinates of the wall)
+	
 	void		(*render)(int screen_width, int screen_height, char **map_world);
 	void		(*draw_line)(void *game, t_matrix *se_points, int x0, int y0);
 }			t_render;
@@ -138,6 +141,7 @@ void 		perform_dda(t_render *render_s, char **map_world);
 void		init_ray(t_render *render_s, int screen_width, int x);
 void		update_timing(t_render *render_s);
 void 		step_and_side_dist(t_render *render_s);
+void    	texture_calculation(t_render *render_s);
 void 		calculate_wall_height(t_render *render_s, int screen_height);
 
 
