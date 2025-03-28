@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:41:48 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/25 17:13:44 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:44:46 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void perform_dda(t_render *render_s, char **map_world)
             render_s->map_y += render_s->step_y;
             render_s->side = 1;
         }
+        // if (worldMap[render_s->map_y][render_s->map_x] > 0) // !USE: world map
         if (worldMap[render_s->map_x][render_s->map_y] > 0) // !USE: world map
             render_s->hit = 1;
         // if (map_world[render_s->map_y][render_s->map_x] == '1')

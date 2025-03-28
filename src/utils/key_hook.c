@@ -6,35 +6,45 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 22:55:38 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/24 22:01:37 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/27 00:13:08 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
 
-static void move_up(int keycode, char **map_world, t_render *render)
+static void move_up(int keycode, char **map_world, t_render *render_s)
 {
-    int new_pos_x = (int)(render->pos_x + render->dir_x * render->move_speed);
-    int new_pos_y = (int)(render->pos_y + render->dir_y * render->move_speed);
+    int new_pos_x;
+    int new_pos_y;
+	int	pos_y;
+	
+	pos_y = (int)render_s->pos_y;
+	
+	new_pos_x = (int)(render_s->pos_x + render_s->dir_x * render_s->move_speed);
+	new_pos_y= (int)(render_s->pos_y + render_s->dir_y * render_s->move_speed);
     
-    if (map_world[new_pos_x][(int)render->pos_y] == '0')
-        render->pos_x += render->dir_x * render->move_speed;
-    if (map_world[(int)render->pos_x][new_pos_y] == '0')
-		render->pos_y += render->dir_y * render->move_speed;
+	printf("new_pos_x: %d\n", new_pos_x);
+	printf("new_pos_y: %d\n", new_pos_y);
+	printf("pos_y: %d\n", pos_y);
+	printf("pos_y: %d\n", (int)render_s->pos_y);
+	// printf("pos_y: %d\n", pos_y);
+    if (worldMap[new_pos_x][pos_y] == 0)
+        render_s->pos_x += render_s->dir_x * render_s->move_speed;
+    if (worldMap[(int)render_s->pos_x][new_pos_y] == 0)
+		render_s->pos_y += render_s->dir_y * render_s->move_speed;
 }
 
 static void move_down(int keycode, char **map_world, t_render *render)
 {
     int new_pos_x;
     int new_pos_y;
-	
-	
+
 	new_pos_x = (int)(render->pos_x - render->dir_x * render->move_speed);
 	new_pos_y = (int)(render->pos_y - render->dir_y * render->move_speed);
-    if (map_world[new_pos_x][(int)render->pos_y] == '0')
+    if (worldMap[new_pos_x][(int)render->pos_y] == 0)
         render->pos_x -= render->dir_x * render->move_speed;
-    if (map_world[(int)render->pos_x][new_pos_y] == '0')
+    if (worldMap[(int)render->pos_x][new_pos_y] == 0)
 		render->pos_y -= render->dir_y * render->move_speed;
 }
 
@@ -74,6 +84,7 @@ int key_press(int keycode, t_cube3d *game)
 	t_render	*render;
 
 	map_world = game->map->map_world;
+	// render = get_render();
 	render = game->render;
 	
 	mlx_clear_window(game->mlx_ptr, game->win_ptr);

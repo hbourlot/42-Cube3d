@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:49:44 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/25 15:37:03 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/26 13:33:34 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 int	init_s_player(t_player *player, t_map *map)
 {
-	// locate_spawn_point(player, map);
-	player->pos_x = 22;
-	player->pos_y = 12;
+	locate_spawn_point(player, map);
 	return (0);
 }

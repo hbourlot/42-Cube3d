@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:47:00 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/26 12:26:18 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:55:45 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,15 @@ t_render	*init_render(t_cube3d *game, int pos_x, int pos_y)
 	{
 		render_s->pos_x = pos_x;
 		render_s->pos_y = pos_y;
+		render_s->pos_x = 22;
+		render_s->pos_y = 12;
+		
 		
 	}
-	// init_location(render_s, game->player->dir);	
+	init_location(render_s, game->player->dir);	
 	render_s->dir_x = -1;
 	render_s->dir_y = 0;
+
 	render_s->plane_x = FOV_X;
 	render_s->plane_y = FOV_Y;
 	render_s->render = render;

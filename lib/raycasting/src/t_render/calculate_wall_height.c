@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:49:09 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/25 21:59:40 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/26 14:48:35 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void calculate_wall_height(t_render *render_s, int screen_height)
     if (render_s->side == 0)
         render_s->perp_wall_dist = render_s->side_dist_x - render_s->delta_dist_x;
     else
-        render_s->perp_wall_dist = render_s->side_dist_y - render_s->delta_dist_y;    
+    {
+        render_s->perp_wall_dist = render_s->side_dist_y - render_s->delta_dist_y;        
+    }
     
     render_s->line_height = (int)(screen_height / render_s->perp_wall_dist);
 
