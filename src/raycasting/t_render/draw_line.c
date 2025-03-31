@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:05:59 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/31 17:16:43 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:38:58 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,23 @@ int	set_color()
         break;
     }
 	return (color);
+}
+
+static int	dda_dx(t_matrix *se_points)
+{
+	return (se_points->m[0][1] - se_points->m[0][0]);
+}
+
+static int dda_dy(t_matrix *se_points)
+{
+	return (se_points->m[1][1] - se_points->m[1][0]);
+}
+
+static int	dda_steps(int delta_x, int delta_y)
+{
+	if (abs(delta_x) > abs(delta_y))
+		return (abs(delta_x));
+	return (abs(delta_y));
 }
 
 void draw_line(void *game, t_matrix *se_points, int x0, int y0)

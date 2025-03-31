@@ -20,16 +20,15 @@ COMPILED_FILES	= 0
 OS				= $(shell uname)
 
 NAME			= cub3D
-C_FUNCTIONS		= init/game_loop init/init_s_cub3d init/init_s_map 											\
+C_FUNCTIONS		= init/game_loop init/init_s_cub3d init/init_s_map 												\
 				  	init/init_window init/init_game init/init_s_player											\
-				  	init/init_render																				\
+				  	init/init_render																			\
 				  																								\
-				  utils/key_hook																				\
+				  utils/key_hook	utils/get_ticks																\
 																												\
 				  exit/free																						\
 																												\
 				  draw/draw_pixel	draw/load_xpm	draw/create_rgb												\
-				  	draw/dda/dda_dx draw/dda/dda_dy draw/dda/dda_steps draw/dda/draw_line						\
 																												\
 				  map/count_lines map/cub_array map/open														\
 				  	map/parsing/map map/parsing/texture map/parsing/floor_ceiling								\
@@ -44,8 +43,7 @@ C_FUNCTIONS		= init/game_loop init/init_s_cub3d init/init_s_map 											\
 					raycasting/t_render/perform_dda raycasting/t_render/update_timing							\
 					raycasting/t_render/calculate_wall_height													\
 					raycasting/t_render/step_and_side_dist raycasting/t_render/init_ray							\
-					raycasting/t_render/texture_calculation														\
-					raycasting/get_ticks																		\
+					raycasting/t_render/texture_calculation	raycasting/t_render/draw_line						\
 																												\
 				  player/locate_spawn_point																		\
 

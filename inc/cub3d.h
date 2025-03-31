@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:18:57 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/31 17:25:17 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:40:47 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,6 @@ int				init_s_cube3d(t_cub3d **game, int argc, char *argv[]);
 int				init_s_player(t_player *player, t_map *map);
 t_render		*init_render(t_cub3d *game, int pos_x, int pos_y);
 
-
-
-
-// ***************************************************************************
-// **							draw/dda Functions       					**
-// ***************************************************************************
-int			dda_steps(int delta_x, int delta_y);
-int 		dda_dy(t_matrix *se_points);
-int			dda_dx(t_matrix *se_points);
-void 		draw_line(void *game, t_matrix *se_points, int x0, int y0);
 
 // ***************************************************************************
 // **							Draw Functions       						**

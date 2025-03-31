@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:35:51 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/28 14:44:04 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:40:51 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ void		update_timing(t_render *render_s);
 void 		step_and_side_dist(t_render *render_s);
 void    	texture_calculation(t_render *render_s);
 void 		calculate_wall_height(t_render *render_s, int screen_height);
+void 		draw_line(void *game, t_matrix *se_points, int x0, int y0);
 
 
 

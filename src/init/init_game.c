@@ -6,13 +6,11 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:00:36 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/31 17:17:03 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:42:38 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-
 
 
 int	init_game(t_cub3d *game)
