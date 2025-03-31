@@ -6,16 +6,16 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:00:36 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/15 16:03:00 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:17:03 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 
 
 
-int	init_game(t_cube3d *game)
+int	init_game(t_cub3d *game)
 {
 	if (init_window(game) < 0)
 		return (-1);

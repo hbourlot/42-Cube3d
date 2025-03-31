@@ -6,13 +6,13 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:59:04 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/14 10:23:08 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:17:17 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
-int init_window(t_cube3d *game)
+int init_window(t_cub3d *game)
 {
     game->mlx_ptr = mlx_init();
     if (!game->mlx_ptr)

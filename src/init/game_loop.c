@@ -6,13 +6,13 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 22:53:39 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/24 20:09:32 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:17:00 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
-void	draw_vertical_line(t_cube3d *game, int x, int start, int end, int color)
+void	draw_vertical_line(t_cub3d *game, int x, int start, int end, int color)
 {
 	int	y;
 
@@ -25,13 +25,13 @@ void	draw_vertical_line(t_cube3d *game, int x, int start, int end, int color)
 	return ;
 }
 
-int draw(t_cube3d *game)
+int draw(t_cub3d *game)
 {
     get_render()->render(SCREEN_WIDTH, SCREEN_HEIGHT, game->map->map_world);
 }
 
 
-int	game_loop(t_cube3d *game)
+int	game_loop(t_cub3d *game)
 {
     t_render	*render;
 

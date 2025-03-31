@@ -6,13 +6,13 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:19:52 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/28 14:01:51 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:19:56 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 #define NORTH "NO" // North
 #define SOUTH "SO" // South

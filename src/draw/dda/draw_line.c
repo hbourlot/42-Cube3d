@@ -6,11 +6,11 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:05:59 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/26 12:21:28 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:16:43 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 int	set_color()
 {
@@ -47,10 +47,10 @@ void draw_line(void *game, t_matrix *se_points, int x0, int y0)
 	float		y_inc;
 	int			i;
 	int			color;
-	t_cube3d	*cube;
+	t_cub3d	*cube;
 
 	steps = dda_steps(dda_dx(se_points), dda_dy(se_points));
-	cube = (t_cube3d *)game;
+	cube = (t_cub3d *)game;
 	x_inc = dda_dx(se_points) / (float)steps;
 	y_inc = dda_dy(se_points) / (float)steps;
 	i = 0;

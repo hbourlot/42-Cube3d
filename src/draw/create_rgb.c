@@ -6,11 +6,11 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:10:45 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/12 17:10:58 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:16:48 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 /// @brief Creates an RGB color value with transparency.
 /// @param t Transparency (0-255, where 0 is fully opaque).

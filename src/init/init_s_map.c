@@ -6,11 +6,11 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:06:44 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/14 10:10:25 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:17:11 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 int	init_s_map(t_map *map)
 {

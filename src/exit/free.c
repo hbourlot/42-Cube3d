@@ -6,11 +6,11 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:14:58 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/24 19:44:47 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:16:56 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "cube3d.h"
+# include "cub3d.h"
 
 static void	free_map(t_map *map)
 {
@@ -40,7 +40,7 @@ static void	free_map(t_map *map)
 		free_pointers(1, &map->floor);
 }
 
-void free_game(t_cube3d *game)
+void free_game(t_cub3d *game)
 {
 	free_map(game->map);
 	if (game->img_ptr)

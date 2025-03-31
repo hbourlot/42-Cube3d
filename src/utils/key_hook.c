@@ -6,11 +6,11 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 22:55:38 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/27 00:13:08 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:20:18 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 
 static void move_up(int keycode, char **map_world, t_render *render_s)
@@ -78,7 +78,7 @@ static void rotate_left(int keycode, t_render *render)
 	render->plane_x = render->plane_x * cos(rot_speed) - render->plane_y * sin(rot_speed);
 	render->plane_y = old_plane_x * sin(rot_speed) + render->plane_y * cos(rot_speed);	
 }
-int key_press(int keycode, t_cube3d *game)
+int key_press(int keycode, t_cub3d *game)
 {
 	char 		**map_world;
 	t_render	*render;

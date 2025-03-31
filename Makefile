@@ -9,9 +9,9 @@ RESET 			= \033[0m
 CC				= cc
 CFLAGS			=  -g #-Wall -Wextra -Werror #-pthread #-fsanitize=address,undefined 
 MINILIB_FLAGS	= -Llib/minilibx-linux  -Lmlx -lmlx -lX11 -lXext -lm  #-lmlx_Linux -lX11 -lXext
-LIB				= libcube3d.a
+LIB				= libcub3d.a
 INCLUDE 		= inc/
-HEADERS			= inc/cube3d.h inc/definitions.h inc/error.h ./lib/libft/inc/libft.h ./lib/raycasting/inc/raycasting.h
+HEADERS			= inc/cub3d.h inc/definitions.h inc/error.h ./lib/libft/inc/libft.h inc/raycasting.h
 SRC_DIR 		= src/
 BONUS_DIR 		= bonus/
 OBJ_DIR 		= obj/
@@ -20,19 +20,32 @@ COMPILED_FILES	= 0
 OS				= $(shell uname)
 
 NAME			= cub3D
-C_FUNCTIONS		= init/game_loop init/init_s_cube3d init/init_s_map 											\
-				  init/init_window init/init_game init/init_s_player											\
-				  init/init_render																				\
+C_FUNCTIONS		= init/game_loop init/init_s_cub3d init/init_s_map 											\
+				  	init/init_window init/init_game init/init_s_player											\
+				  	init/init_render																				\
 				  																								\
 				  utils/key_hook																				\
 																												\
 				  exit/free																						\
+																												\
 				  draw/draw_pixel	draw/load_xpm	draw/create_rgb												\
-				  draw/dda/dda_dx draw/dda/dda_dy draw/dda/dda_steps draw/dda/draw_line								\
+				  	draw/dda/dda_dx draw/dda/dda_dy draw/dda/dda_steps draw/dda/draw_line						\
 																												\
 				  map/count_lines map/cub_array map/open														\
-				  map/parsing/map map/parsing/texture map/parsing/floor_ceiling									\
-				  map/parsing/name map/parsing/utils 															\
+				  	map/parsing/map map/parsing/texture map/parsing/floor_ceiling								\
+				  	map/parsing/name map/parsing/utils 															\
+																												\
+				  raycasting/t_matrix/identify_matrix raycasting/t_matrix/multiply_matrix_vector				\
+					raycasting/t_matrix/multiply_matrix_vector raycasting/t_matrix/rotation_matrix_z			\
+					raycasting/t_matrix/translation_matrix														\
+					raycasting/t_vec/add raycasting/t_vec/cross raycasting/t_vec/dot							\
+					raycasting/t_vec/magnitude raycasting/t_vec/normalize raycasting/t_vec/subtract				\
+					raycasting/t_render/get_render raycasting/t_render/render									\
+					raycasting/t_render/perform_dda raycasting/t_render/update_timing							\
+					raycasting/t_render/calculate_wall_height													\
+					raycasting/t_render/step_and_side_dist raycasting/t_render/init_ray							\
+					raycasting/t_render/texture_calculation														\
+					raycasting/get_ticks																		\
 																												\
 				  player/locate_spawn_point																		\
 
@@ -41,14 +54,14 @@ C_FUNCTIONS		= init/game_loop init/init_s_cube3d init/init_s_map 											\
 
 # -L./ -lminishell
 VALGRIND		= valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes
-LINK			= -L./lib/libft -lft -L./lib/raycasting -lraycasting $(MINILIB_FLAGS)
+LINK			= -L./lib/libft -lft $(MINILIB_FLAGS)
 
 SRC_FILES 		= $(addprefix $(SRC_DIR), $(C_FUNCTIONS:=.c))
 OBJS_SRC 		= $(addprefix $(OBJ_DIR), $(SRC_FILES:%.c=%.o))
 
 # -- INCLUDES LIBRARIES
 LIBFT_LIB 		= ./lib/libft/libft.a
-RAYCASTING_LIB  = ./lib/raycasting/libraycasting.a 
+# RAYCASTING_LIB  = ./lib/raycasting/libraycasting.a 
 MINILIBX_LIB	= ./lib/minilibx-linux/libmlx.a
 
 ifeq ($(OS), Darwin)
@@ -87,21 +100,17 @@ define fclean_func
 	fi
 endef
 
-
 all:			$(NAME)
 
 $(MINILIBX_LIB):
 				make -s -C ./lib/minilibx-linux/
 
-$(NAME): 		$(MINILIBX_LIB) $(LIBFT_LIB) $(RAYCASTING_LIB) $(LIB) $(HEADERS)
+$(NAME): 		$(MINILIBX_LIB) $(LIBFT_LIB) $(LIB) $(HEADERS)
 				@$(CC) $(CFLAGS) $(LIB) $(LINK) -o $(NAME)
 				@echo "$(GREEN)Executable '$(RED)$(NAME)$(GREEN)' created successfully!$(RESET) ✅"
 
 $(LIBFT_LIB):
 				@make -s -C lib/libft/
-
-$(RAYCASTING_LIB):
-				@make -s -C ./lib/raycasting/
 
 $(LIB):			$(OBJS_SRC) main.o
 				@ar rcs $@ $(OBJS_SRC) main.o
@@ -112,19 +121,17 @@ $(OBJ_DIR)%.o:	%.c $(INCLUDE)
 				$(call print_compile_msg, $<)
 				@$(CC) $(CFLAGS) -c $< -I./$(INCLUDE) -o $@
 
-main.o:			main.c $(INCLUDE) #inc/cube3d.h inc/definitions.h inc/error.h
+main.o:			main.c $(INCLUDE) #inc/cub3d.h inc/definitions.h inc/error.h
 				$(call print_compile_msg, $<)
 				@$(CC) -c main.c $(CFLAGS) -I./$(INCLUDE) -o $@
 
 clean:
 				@make clean -s -C ./lib/libft
-				@make clean -s -C ./lib/raycasting
 				@make clean -s -C ./lib/minilibx-linux
 				$(call clean_func)
 
 fclean: 		clean
 				@make fclean -s -C ./lib/libft
-				@make fclean -s -C ./lib/raycasting
 				@$(call fclean_func)
 
 re: 			fclean all

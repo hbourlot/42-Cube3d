@@ -6,11 +6,11 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:47:00 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/26 16:55:45 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:17:05 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 static void init_location(t_render *render_s, char dir)
 {
@@ -37,7 +37,7 @@ static void init_location(t_render *render_s, char dir)
 	}
 }
 
-t_render	*init_render(t_cube3d *game, int pos_x, int pos_y)
+t_render	*init_render(t_cub3d *game, int pos_x, int pos_y)
 {
 	t_render *render_s;
 

@@ -1,11 +1,9 @@
-#include "./inc/cube3d.h"
-
-
+#include "./inc/cub3d.h"
 
 
 int	main(int argc, char *argv[])
 {
-	t_cube3d	*game;
+	t_cub3d	*game;
 	
 	if (argc != 2)
 		return (ft_printf_fd(2, ME_MMA), 1);

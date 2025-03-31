@@ -6,13 +6,13 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:19:57 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/06 14:40:10 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:19:59 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 #define ME_MMA "Error: Map argument!\n"
 #define ME_MALLOC "Error: Malloc!\n"

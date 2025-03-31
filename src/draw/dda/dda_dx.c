@@ -6,11 +6,11 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:04:31 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/19 15:36:21 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:16:34 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 int	dda_dx(t_matrix *se_points)
 {
