@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:47:00 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/31 17:17:05 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:27:37 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,14 @@ t_render	*init_render(t_cub3d *game, int pos_x, int pos_y)
 
 	render_s->plane_x = FOV_X;
 	render_s->plane_y = FOV_Y;
-	render_s->render = render;
-	render_s->draw_line = draw_line;
-	render_s->game = game;
+	render_s->mlx_ptr = game->mlx_ptr;
+	render_s->win_ptr = game->win_ptr;
+
+	// Fix in a function
+	render_s->img = &game->img;
+	render_s->mlx_get_data_addr = mlx_get_data_addr; // mlx func*
+	render_s->mlx_xpm_file_to_image = mlx_xpm_file_to_image; // mlx func*
+	// load_all_textures(render_s, render_s->mlx_ptr);
+	render_s->img->addr = mlx_get_data_addr(render_s->img->img_ptr, &render_s->img->bpp, &render_s->img->size_line, &render_s->img->endian);
 	return (render_s);
 }

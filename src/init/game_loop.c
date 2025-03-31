@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 22:53:39 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/31 17:17:00 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:36:07 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,19 @@ void	draw_vertical_line(t_cub3d *game, int x, int start, int end, int color)
 
 int draw(t_cub3d *game)
 {
-    get_render()->render(SCREEN_WIDTH, SCREEN_HEIGHT, game->map->map_world);
+    render(SCREEN_WIDTH, SCREEN_HEIGHT, game->map->map_world);
 }
 
 
 int	game_loop(t_cub3d *game)
 {
-    t_render	*render;
 
     game->render = init_render(game, game->player->pos_x, game->player->pos_y);
+	// generate_textures(game->render);
+	generate_textures(game->render, game->render->mlx_ptr);
 
 	mlx_hook(game->win_ptr, KeyPress, KeyPressMask, key_press, game);
     mlx_loop_hook(game->mlx_ptr, draw, game);
 	mlx_loop(game->mlx_ptr);
 	return 0;
 }
-
-
-// for (int i = 0; game->map->map_array[i]; i++)
-// {
-//     for (int j = 0; game->map->map_array[i][j]; j++)
-//         printf("%c,", game->map->map_array[i][j]);
-//     printf("\n");
-// }

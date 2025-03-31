@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:14:58 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/31 17:16:56 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/04/01 00:52:55 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,38 @@ static void	free_map(t_map *map)
 		free_pointers(1, &map->floor);
 }
 
+
+static void	free_sprites(t_cub3d *game, t_sprite *sprites)
+{
+	if (sprites->no)
+	{
+		mlx_destroy_image(game->mlx_ptr, sprites->no->img_ptr);
+		free(sprites->no);
+	}
+	if (sprites->so)
+	{
+		mlx_destroy_image(game->mlx_ptr, sprites->so->img_ptr);
+		free(sprites->so);
+	}
+	if (sprites->ea)
+	{
+		mlx_destroy_image(game->mlx_ptr, sprites->ea->img_ptr);
+		free(sprites->ea);
+	}
+	if (sprites->we)
+	{
+		mlx_destroy_image(game->mlx_ptr, sprites->we->img_ptr);
+		free(sprites->we);
+	}
+}
+
+
 void free_game(t_cub3d *game)
 {
+	free_sprites(game, game->sprites);
 	free_map(game->map);
-	if (game->img_ptr)
-		mlx_destroy_image(game->mlx_ptr, game->img_ptr);
+	if (game->img.img_ptr)
+		mlx_destroy_image(game->mlx_ptr, game->img.img_ptr);
 	if (game->mlx_ptr)
 	{
 		if (game->mlx_ptr)

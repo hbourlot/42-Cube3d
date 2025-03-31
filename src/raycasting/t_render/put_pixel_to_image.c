@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game.c                                        :+:      :+:    :+:   */
+/*   put_pixel_to_image.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 15:00:36 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/04/01 01:05:17 by hbourlot         ###   ########.fr       */
+/*   Created: 2025/03/31 19:00:16 by hbourlot          #+#    #+#             */
+/*   Updated: 2025/04/01 00:36:05 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "raycasting.h"
 
-int	init_game(t_cub3d *game)
+void put_pixel_to_image(t_img *img, int x, int y, int color)
 {
-	if (init_window(game) < 0 /* || init_s_sprite(game) */)
-		return (-1);
+    int pixel_index;
 
-	game_loop(game);
-	return (0);
+    if (x < 0 || y < 0 || x >= SCREEN_WIDTH || y >= SCREEN_HEIGHT)
+        return;
+    
+    pixel_index = (y * img->size_line) + (x * (img->bpp / 8));
+    *(int *)(img->addr + pixel_index) = color;
 }

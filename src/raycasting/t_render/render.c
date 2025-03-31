@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:31:15 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/28 14:44:12 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/04/01 14:26:58 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,6 @@ static void print_debug(t_render *render_s, int x)
     // sleep(4);
 }
 
-int		create_rgbb(int t, int r, int g, int b)
-{
-	return (t << 24 | r << 16 | g << 8 | b);
-}
-
 
 void render(int screen_width, int screen_height, char **map_world)
 {
@@ -74,7 +69,7 @@ void render(int screen_width, int screen_height, char **map_world)
         init_ray(render_s, screen_width, x);
         step_and_side_dist(render_s);
         perform_dda(render_s, map_world);
-        texture_calculation(render_s);
+        texture_calculation(render_s, x);
         calculate_wall_height(render_s, screen_height);
         // print_debug(render_s, x);
 
@@ -82,7 +77,8 @@ void render(int screen_width, int screen_height, char **map_world)
         render_s->wall_points.m[1][0] = render_s->draw_start;
         render_s->wall_points.m[0][1] = x;
         render_s->wall_points.m[1][1] = render_s->draw_end;
-        render_s->draw_line(render_s->game, &render_s->wall_points, x, render_s->draw_start);
+        draw_line(render_s, &render_s->wall_points, x, render_s->draw_start);
+
         x++;
     }
 }

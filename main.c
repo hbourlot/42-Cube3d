@@ -7,7 +7,7 @@ int	main(int argc, char *argv[])
 	
 	if (argc != 2)
 		return (ft_printf_fd(2, ME_MMA), 1);
-	if (init_s_cube3d(&game, argc, argv) < 0)
+	if (init_s_cub3d(&game, argc, argv) < 0)
 		return (free_game(game), 1);
 	init_game(game);
 	free_game(game);

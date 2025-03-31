@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:18:57 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/31 17:40:47 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/04/01 01:05:32 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "../lib/libft/inc/libft.h"
 #include "../lib/minilibx-linux/mlx.h"
+#include "mlx_image.h"
 #include "raycasting.h"
 #include "definitions.h"
 #include "error.h"
@@ -28,19 +29,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-typedef struct s_img
-{
-	char				*addr;
-	void				*mlx_ptr;
-	void				*win_ptr;
-	void				*img_ptr;
-	int					width;
-	int					height;
-	int					color;
-	int					bpp;
-	int					size_line;
-	int					endian;
-}			t_img;
 
 typedef struct s_sprite
 {
@@ -76,14 +64,14 @@ typedef struct s_player
 	char  dir;
 }				t_player;
 
-typedef struct s_cube3d
+typedef struct s_cub3d
 {
 	t_map		*map;
 	void		*mlx_ptr;
 	void		*win_ptr;
-	void		*img_ptr;
+	t_img		img;
 	char		*name;
-	t_img		*sprites;
+	t_sprite	*sprites;
 	t_player	*player;
 	t_render	*render;
 
@@ -108,9 +96,14 @@ bool			has_invalid_name(t_map *map);
 // ***************************************************************************
 int				init_s_map(t_map *map);
 int				init_game(t_cub3d *game);
-int				init_s_cube3d(t_cub3d **game, int argc, char *argv[]);
+// int				init_s_sprite(t_cub3d *game);
 int				init_s_player(t_player *player, t_map *map);
 t_render		*init_render(t_cub3d *game, int pos_x, int pos_y);
+int				init_s_cub3d(t_cub3d **game, int argc, char *argv[]);
+
+
+void 		load_all_textures(t_render *render_s, void *mlx);
+
 
 
 // ***************************************************************************

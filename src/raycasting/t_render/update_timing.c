@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:48:02 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/25 15:48:21 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/04/01 15:18:37 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void update_timing(t_render *render_s)
     
     double frameTime = (render_s->time - render_s->old_time) / 1000.0;
 
-    render_s->move_speed = frameTime * 15.0;  
-    render_s->rot_speed = frameTime * 8.0;
+    render_s->move_speed = frameTime * 5.0;  
+    render_s->rot_speed = frameTime * 2.0;
 }

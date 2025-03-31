@@ -6,12 +6,14 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:35:51 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/31 17:40:51 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:34:40 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include "definitions.h"
+#include "mlx_image.h"
 #include <math.h>
 #include <stdio.h>
 #include <wait.h>
@@ -32,8 +34,8 @@
 
 #define mapWidth 24
 #define mapHeight 24
-#define texWidth 64
-#define texHeight 64
+#define tex_width 64
+#define tex_height 64
 
 extern int worldMap[mapWidth][mapHeight];
 
@@ -84,7 +86,17 @@ typedef struct s_dda
 
 typedef struct s_render
 {
-	void		*game;
+	void		*mlx_ptr; // mlx
+	void		*win_ptr; // mlx
+	t_img		*img; // mlx img of buffer
+	void		*(*mlx_xpm_file_to_image)(void *mlx_ptr, char *filename,  int *width, int *height);
+	char		*(*mlx_get_data_addr)(void *img_ptr, int *bits_per_pixel, int *size_line, int *endian);
+	// t_vec3		texture[8][tex_width * tex_height];
+	// int			texture[8][tex_width * tex_height];
+	t_img		texture[8][tex_width * tex_height];
+	// t_vec3		texture[8][SCREEN_HEIGHT * SCREEN_WIDTH];
+	int			buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
+
 	double		pos_x;		// x start position
 	double		pos_y;		// y start position
 	double		dir_x;		// initial direction vector
@@ -116,9 +128,6 @@ typedef struct s_render
 	int			tex_num; // value of the current map square minus 1
 	int			tex_x; // x-coordinate of the texture
 	double		wall_x; // exact value where the wall was hit ( not just the integer coordinates of the wall)
-	
-	void		(*render)(int screen_width, int screen_height, char **map_world);
-	void		(*draw_line)(void *game, t_matrix *se_points, int x0, int y0);
 }			t_render;
 
 
@@ -130,20 +139,24 @@ t_vec3		subtract(t_vec3 a, t_vec3 b);
 float		magnitude(t_vec3 v);
 float		dot(t_vec3 a, t_vec3 b);
 
-void		multiply_matrix_vector(float result[4], t_matrix m, float v[4]);
 t_matrix	identify_matrix();
-t_matrix	translation_matrix(float tx, float ty, float tz);
 t_matrix	rotation_matrix_z(float angle);
+t_matrix	translation_matrix(float tx, float ty, float tz);
+void		multiply_matrix_vector(float result[4], t_matrix m, float v[4]);
 
 t_render	*get_render();
-void		render(int screen_width, int screen_height, char **map_world);
+void 		clear_window(t_img *img);
+void		update_timing(t_render *render_s);
+// void		generate_textures(t_render *render_s);
+void		generate_textures(t_render *render_s, void *mlx);
+void 		step_and_side_dist(t_render *render_s);
+void	 	texture_calculation(t_render *render_s, int x);
 void 		perform_dda(t_render *render_s, char **map_world);
 void		init_ray(t_render *render_s, int screen_width, int x);
-void		update_timing(t_render *render_s);
-void 		step_and_side_dist(t_render *render_s);
-void    	texture_calculation(t_render *render_s);
+void		put_pixel_to_image(t_img *img, int x, int y, int color);
 void 		calculate_wall_height(t_render *render_s, int screen_height);
-void 		draw_line(void *game, t_matrix *se_points, int x0, int y0);
+void		render(int screen_width, int screen_height, char **map_world);
+void 		draw_line(t_render *render_s, t_matrix *se_points, int x0, int y0);
 
 
 

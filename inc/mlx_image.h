@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game.c                                        :+:      :+:    :+:   */
+/*   mlx_image.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 15:00:36 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/04/01 01:05:17 by hbourlot         ###   ########.fr       */
+/*   Created: 2025/03/31 18:49:37 by hbourlot          #+#    #+#             */
+/*   Updated: 2025/03/31 18:50:13 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#pragma once
 
-int	init_game(t_cub3d *game)
+typedef struct s_img
 {
-	if (init_window(game) < 0 /* || init_s_sprite(game) */)
-		return (-1);
-
-	game_loop(game);
-	return (0);
-}
+	char				*addr;
+	void				*mlx_ptr;
+	void				*win_ptr;
+	void				*img_ptr;
+	int					width;
+	int					height;
+	int					color;
+	int					bpp;
+	int					size_line;
+	int					endian;
+}			t_img;

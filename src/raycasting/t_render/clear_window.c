@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game.c                                        :+:      :+:    :+:   */
+/*   clear_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 15:00:36 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/04/01 01:05:17 by hbourlot         ###   ########.fr       */
+/*   Created: 2025/03/31 18:49:08 by hbourlot          #+#    #+#             */
+/*   Updated: 2025/04/01 00:37:38 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "raycasting.h"
 
-int	init_game(t_cub3d *game)
+void clear_window(t_img *img)
 {
-	if (init_window(game) < 0 /* || init_s_sprite(game) */)
-		return (-1);
+    int x, y;
 
-	game_loop(game);
-	return (0);
+    y = 0;
+    while (y < SCREEN_HEIGHT)
+    {
+        x = 0;
+        while (x < SCREEN_WIDTH)
+        {
+            put_pixel_to_image(img, x, y, 0x000000); // Set to black
+            x++;
+        }
+        y++;
+    }
 }

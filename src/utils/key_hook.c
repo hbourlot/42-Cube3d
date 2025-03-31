@@ -6,7 +6,7 @@
 /*   By: hbourlot <hbourlot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 22:55:38 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/03/31 17:20:18 by hbourlot         ###   ########.fr       */
+/*   Updated: 2025/04/01 14:05:20 by hbourlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,19 +87,20 @@ int key_press(int keycode, t_cub3d *game)
 	// render = get_render();
 	render = game->render;
 	
-	mlx_clear_window(game->mlx_ptr, game->win_ptr);
-	if (keycode == XK_Up)
+	clear_window(render->img);
+	// mlx_clear_window(game->mlx_ptr, game->win_ptr);
+	if (keycode == XK_Up || keycode == XK_w)
 		move_up(keycode, map_world, render);
-	if (keycode == XK_Down)
+	if (keycode == XK_Down || keycode == XK_s)
 		move_down(keycode, map_world, render);
 	if (keycode == XK_Escape)
 	{
 		ft_printf_fd(1, "You pressed %d (Esc)\n", keycode);
 		free_game(game);
 	}
-	if (keycode == XK_Right)
+	if (keycode == XK_Right || keycode == XK_d)
 		rotate_right(keycode, render);
-	if (keycode == XK_Left)
+	if (keycode == XK_Left || keycode == XK_a)
 		rotate_left(keycode, render);
 	return (0);
 }

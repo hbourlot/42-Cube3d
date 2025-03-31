@@ -22,7 +22,7 @@ OS				= $(shell uname)
 NAME			= cub3D
 C_FUNCTIONS		= init/game_loop init/init_s_cub3d init/init_s_map 												\
 				  	init/init_window init/init_game init/init_s_player											\
-				  	init/init_render																			\
+				  	init/init_render init/init_s_sprite															\
 				  																								\
 				  utils/key_hook	utils/get_ticks																\
 																												\
@@ -41,14 +41,13 @@ C_FUNCTIONS		= init/game_loop init/init_s_cub3d init/init_s_map 												\
 					raycasting/t_vec/magnitude raycasting/t_vec/normalize raycasting/t_vec/subtract				\
 					raycasting/t_render/get_render raycasting/t_render/render									\
 					raycasting/t_render/perform_dda raycasting/t_render/update_timing							\
-					raycasting/t_render/calculate_wall_height													\
+					raycasting/t_render/calculate_wall_height	raycasting/t_render/generate_texture			\
+					raycasting/t_render/texture_calculation														\
 					raycasting/t_render/step_and_side_dist raycasting/t_render/init_ray							\
-					raycasting/t_render/texture_calculation	raycasting/t_render/draw_line						\
-																												\
+					raycasting/t_render/draw_line raycasting/t_render/generate_texture							\
+					raycasting/t_render/clear_window	raycasting/t_render/put_pixel_to_image					\
 				  player/locate_spawn_point																		\
-
-
-
+# raycasting/t_render/generate_texture
 
 # -L./ -lminishell
 VALGRIND		= valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes
