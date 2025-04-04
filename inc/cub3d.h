@@ -6,7 +6,7 @@
 /*   By: joralves <joralves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:18:57 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/04/01 16:39:16 by joralves         ###   ########.fr       */
+/*   Updated: 2025/04/04 13:26:40 by joralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,16 +116,11 @@ typedef struct s_dda
 
 typedef struct s_raycast
 {
-	float		alpha;
-	float		ray_angle;
-	float		dist;
-	float		wall_start;
-	float		perp_dist;
-	int			column_width;
-	int			wall_height;
-	int			x_start;
-	int			x_end;
-	int			screen_y;
+	// float		dist;
+	float		p_dist;
+	int			wall_h;
+	int			draw_start;
+	int			draw_end;
 	t_dda		dda;
 }				t_raycast;
 
@@ -134,7 +129,7 @@ typedef struct s_cub3d
 	t_map		*map;
 	void		*mlx_ptr;
 	void		*win_ptr;
-	void		*img_ptr;
+	t_img		*main_img;
 	char		*name;
 	t_sprite	*sprites;
 	t_player	player;

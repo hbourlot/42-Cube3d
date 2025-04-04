@@ -6,7 +6,7 @@
 /*   By: joralves <joralves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:19:52 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/04/01 01:15:57 by joralves         ###   ########.fr       */
+/*   Updated: 2025/04/04 11:24:00 by joralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@
 #define SCREEN_HEIGHT 200 * SCREEN_SCALE
 
 // PLANE VARS
-#define GAME_SCALE 2 * SCREEN_SCALE
-#define GAME_WIDTH SCREEN_WIDTH / GAME_SCALE
-#define GAME_HEIGHT SCREEN_HEIGHT / GAME_SCALE
+// #define GAME_SCALE 2 * SCREEN_SCALE
+// #define GAME_WIDTH SCREEN_WIDTH / GAME_SCALE
+// #define GAME_HEIGHT SCREEN_HEIGHT / GAME_SCALE
 
 // OTHER PLANE VARS
 #define FOV PI / 3
