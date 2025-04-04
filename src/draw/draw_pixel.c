@@ -94,7 +94,6 @@ void	draw_player2d(t_cub3d *game)
 {
 	// int	line_x;
 	// int	line_y;
-
 	draw_square(game, game->player.x - TILE_SIZE / 2, game->player.y - TILE_SIZE
 		/ 2, TILE_SIZE, TILE_SIZE, 0xc0c0c0);
 	// draw_square(game, game->player.x, game->player.y, TILE_SIZE, TILE_SIZE,

@@ -15,9 +15,9 @@ int	init_window(t_cub3d *game)
 			"Cube-3D");
 	if (!game->win_ptr)
 		return (ft_printf_fd(2, ME_NW), -1);
-	game->main_img->img = mlx_new_image(game->mlx_ptr, SCREEN_WIDTH,
+	game->main_img.img = mlx_new_image(game->mlx_ptr, SCREEN_WIDTH,
 			SCREEN_HEIGHT);
-	if (!game->main_img->img)
+	if (!game->main_img.img)
 		return (ft_printf_fd(2, "Image not created"), -1);
 	return (0);
 }

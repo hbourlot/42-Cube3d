@@ -6,7 +6,7 @@
 /*   By: joralves <joralves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:18:57 by hbourlot          #+#    #+#             */
-/*   Updated: 2025/04/04 13:26:40 by joralves         ###   ########.fr       */
+/*   Updated: 2025/04/04 17:15:55 by joralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ typedef struct s_cub3d
 	t_map		*map;
 	void		*mlx_ptr;
 	void		*win_ptr;
-	t_img		*main_img;
+	t_img		main_img;
 	char		*name;
 	t_sprite	*sprites;
 	t_player	player;
@@ -199,3 +199,7 @@ void			move_player(t_map *map, t_player *player, int keycode);
 
 // void			dda(t_cub3d *game, t_raycast *raycast, float x0, float y0);
 int				init_dirt_sprite(t_cub3d *game);
+t_img	*get_texture(t_cub3d *game, t_raycast *raycast);
+int		get_texture_color(t_img *tex, int x, int y);
+t_dda	dda(t_cub3d *game, float x0, float y0, float angle);
+void	print_ddainfo(t_dda dda_info);
